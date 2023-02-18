@@ -21,10 +21,10 @@ int main(void)
 		ultimo = ultimo % 10;
 	printf("Last digit of %d is ", n);
 	if (ultimo == 0)
-		printf("%d and is 0", ultimo);
+		printf("%d and is 0\n", ultimo);
 	else if (ultimo > 5)
-		printf("%d and is greater than 5", ultimo);
+		printf("%d and is greater than 5\n", ultimo);
 	else
-		printf("%d and is less than 6 and not 0", ultimo);
+		printf("%d and is less than 6 and not 0\n", ultimo);
 	return (0);
 }
