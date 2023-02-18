@@ -12,16 +12,12 @@
 
 int main(void)
 {
-	int i, n;
+	char alph;
 
-	char alphabet[26] = "abcdefghijklmnopqrstuvwxyz";
-
-	char ALPHABET[27] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ$";
-
-	for (i = 0; i < 26; i++)
-		putchar(alphabet[i]);
-	for (n = 0; n < 27; i++)
-		putchar(ALPHABET[n]);
+	for (alph = 'a'; alph <= 'z'; alph++)
+		putcha(alph);
+	for (alph = 'A'; alph <= 'Z'; alph++)
+		putchar(alph);
 	putchar('\n');
 	return (0);
 }
