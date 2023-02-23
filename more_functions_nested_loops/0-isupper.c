@@ -5,7 +5,7 @@
  *
  * @c: Number to be checked
  *
- * Returns 1 or 0
+ * Return: 1 or 0
  */
 
 int _isupper(int c)
