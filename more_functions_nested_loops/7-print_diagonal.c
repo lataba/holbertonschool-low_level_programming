@@ -5,8 +5,8 @@
 *
 *@n : times \ repeat
 *
-* Return: diagonal of \
-*/
+* Return: diagonal of
+**/
 
 void print_diagonal(int n)
 {
