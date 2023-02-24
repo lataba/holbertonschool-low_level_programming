@@ -1,13 +1,10 @@
 #include "main.h"
 
 /**
- * _isdigit - cheks for uppercase character
- *
- * @c: symbol to be checked
- *
- * Return: 1 or 0
- */
-
+* _isdigit - check digit.
+* @c: integer
+* Return: 1 succes
+*/
 int _isdigit(int c)
 {
 	if ((c >= 48) && (c <= 57))
