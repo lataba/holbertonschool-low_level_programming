@@ -30,5 +30,9 @@ int _atoi(char *s)
 		n = (n * 10) + (s[i] - '0');
 		i++;
 	}
-	return (n * sign);
+
+	if (n > 0)
+		return (n * sign);
+	else
+		return (0);
 }
