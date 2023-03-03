@@ -11,10 +11,11 @@
 char *string_toupper(char *str)
 
 {
-	while (*str++)
-		if ((*str >= 'a') && (*str <= 'z'))
+	while (*str)
+	{
+		if ((*str >= 97) && (*str <= 122))
 			*str = *str - 32;
-		else if ((*str >= 'A') && (*str <= 'Z'))
-			*str = *str + 32;
+		str++;
+	}
 	return (str);
 }
