@@ -11,21 +11,21 @@
 char *leet(char *str)
 
 {
-	int i = 0;
+	char min[10] = {'a', 'e', 'o', 't', 'l', 'A', 'E', 'O', 'T', 'L'};
+	char num[10] = {'4', '3', '0', '7', '1', '4', '3', '0', '7', '1'};
+	int i = 0, j = 0, index = 0;
 
-	while (str[i])
+	while (str[index])
 	{
-		if (str[i] == 'a' || str[i] == 'A')
-			str[i] = '4';
-		else if (str[i] == 'e' || str[i] == 'E')
-			str[i] = '3';
-		else if (str[i] == 'o' || str[i] == 'O')
-			str[i] = '0';
-		else if (str[i] == 't' || str[i] == 'T')
-			str[i] = '7';
-		else if (str[i] == 'l' || str[i] == 'L')
-			str[i] = '1';
-		i++;
+		i = j = 0;
+		while ((i < 10) && (str[index] != min[i]))
+		{
+			i++;
+			j++;
+		}
+		if (str[index] == min[i])
+			str[index] = num[j];
+		index++;
 	}
 	return (str);
 }
