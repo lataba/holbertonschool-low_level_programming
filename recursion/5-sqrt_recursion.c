@@ -8,10 +8,6 @@
  * Return: the root
  */
 
-/**
- * radical - find the root
- */
-
 int radical(int n, int sq);
 
 int _sqrt_recursion(int n)
@@ -29,6 +25,13 @@ int _sqrt_recursion(int n)
 	else
 		return (-1);
 }
+
+/**
+ *radical - find the root
+ * @n: the number
+ * @sq: the root
+ * Return: the root
+ */
 
 int radical(int n, int sq)
 
