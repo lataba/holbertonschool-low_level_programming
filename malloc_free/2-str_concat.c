@@ -16,10 +16,12 @@ char *str_concat(char *s1, char *s2)
 	char *concstr = NULL;
 	int i = 0, j, stop1, stop2;
 
+	if ((s1 == NULL) && (s2 == NULL))
+		return (NULL);
 	if (s1 == NULL)
-		return (s2);
+		return (_strdup(s2));
 	if (s2 == NULL)
-		return (s1);
+		return (_strdup(s1));
 
 	stop1 = strlen(s1);
 	stop2 = strlen(s2) + 1;
