@@ -14,20 +14,20 @@
 int *array_range(int min, int max)
 
 {
-	int *p;
-	int qua, i = 0, num = min;
+	int *p = NULL;
+	int size, i = 0, num = min;
 
 	if (min > max)
 		return (NULL);
 
-	for (qua = min; qua <= max; qua++)
-		;
-	p = malloc(sizeof(int) * qua);
+	size = max - min + 1;
+
+	p = malloc(sizeof(int) * size);
 		if (p == NULL)
 			return (NULL);
 	while (num <= max)
 	{
-		p[i] = num;
+		p[i - min] = num;
 		num++;
 		i++;
 	}
