@@ -4,6 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * struct dog - is an struct that keeps info about a dog
+ * @name: dog's name
+ * @age: dog's age
+ * @owner: the name of the dog owner
+ */
+
 struct dog
 {
 	char *name;
@@ -12,6 +19,8 @@ struct dog
 };
 
 typedef struct dog dog_t;
+
+/*function prototypes*/
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
