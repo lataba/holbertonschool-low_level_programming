@@ -24,7 +24,7 @@ int print_char(va_list args)
 
 int print_float(va_list args)
 {
-	float f = va_arg(args, int);
+	float f = va_arg(args, double);
 
 	printf("%f", f);
 	return (0);
@@ -85,7 +85,7 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (format && format[i])
+	while (format && format[i] != '\0')
 	{
 		j = 0;
 		while (format[i] != specifier[j].c && specifier[j].c != '\0')
