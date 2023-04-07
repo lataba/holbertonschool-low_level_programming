@@ -3,51 +3,101 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - function that prints numbers, followed by a new line
- * @format: a list of types of arguments passed to the function
- * Return: Always 0.
+ * print_char - Prints a char
+ * @args: char to print
+ * Return: 0
  */
+
+int print_char(va_list args)
+{
+	char c = va_arg(args, int);
+
+	printf("%c", c);
+	return (0);
+}
+
+/**
+ * print_float - Prints a float
+ * @args: float to print
+ * Return: 0
+ */
+
+int print_float(va_list args)
+{
+	float f = va_arg(args, int);
+
+	printf("%f", f);
+	return (0);
+}
+
+/**
+ * print_str - Prints a string
+ * @args: string to print
+ * Return: 0
+ */
+
+int print_str(va_list args)
+{
+	char *st = va_arg(args, char *);
+
+	if (st == NULL)
+	{
+		printf("(nil)");
+		return (-1);
+	}
+	printf("%s", st);
+	return (0);
+}
+
+/**
+ * print_num - Prints an int
+ * @args: int to print
+ * Return: 0
+ */
+
+int print_num(va_list args)
+{
+	int i = va_arg(args, int);
+
+	printf("%i", i);
+	return (0);
+}
+
+/**
+* print_all - function that prints numbers, followed by a new line
+* @format: a list of arguments passed to the function
+* Return: Always 0.
+*/
 
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	char c;
-	int integer;
-	float f;
-	char *s;
+	spec specifier[] = {
+		{'c', print_char},
+		{'i', print_num},
+		{'f', print_float},
+		{'s', print_str},
+		{'\0', NULL},
+	};
+
+	int i = 0, j;
 	va_list args;
+	char *separator = "";
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
-		switch (format[i])
+		j = 0;
+		while (format[i] != specifier[j].c && specifier[j].c != '\0')
+			j++;
+		if (specifier[j].c != '\0')
 		{
-			case 'c':
-				c = va_arg(args, int);
-				printf("%c", c);
-				break;
-			case 'i':
-				integer = va_arg(args, int);
-				printf("%d", integer);
-				break;
-			case 'f':
-				f = va_arg(args, double);
-				printf("%f", f);
-				break;
-			case 's':
-				s = va_arg(args, char *);
-				if (s == NULL)
-					printf("(nil)");
-				else
-					printf("%s", s);
-			break;
-			default:
-			break;
+			printf("%s", separator);
+			specifier[j].func(args);
+			separator = ", ";
 		}
-		if (format[i + 1] != '\0')
-		printf(", ");
-		i++;	}
-	printf("\n");
+		i++;
+	}
 	va_end(args);
+	printf("\n");
 }
