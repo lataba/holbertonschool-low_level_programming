@@ -23,10 +23,12 @@ int create_file(const char *filename, char *text_content)
 	if (open_file == -1)
 		return (-1);
 
-	bytes_write = write(open_file, text_content, strlen(text_content));
-
-	if (bytes_write == -1)
-		return (-1);
+	if (text_content != NULL)
+	{
+		bytes_write = write(open_file, text_content, strlen(text_content));
+		if (bytes_write == -1)
+			return (-1);
+	}
 
 	close(open_file);
 	return (1);
