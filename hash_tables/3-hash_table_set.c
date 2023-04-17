@@ -1,6 +1,8 @@
 #include "hash_tables.h"
 #include <string.h>
 
+unsigned long int key_index(const unsigned char *key, unsigned long int size);
+
 /**
  * hash_table_set - function that adds an element to the hash table
  * @ht: hash table to modify
@@ -50,4 +52,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht->array[i] = elem;
 
 	return (1);
+}
+
+/**
+ * key_index - function that gives you the index of a key
+ * @key: the key
+ * @size: the size of the array of the hash table
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
+
+unsigned long int key_index(const unsigned char *key, unsigned long int size)
+{
+	unsigned long int hash_val;
+
+	hash_val = hash_djb2(key);
+	return (hash_val % size);
 }
